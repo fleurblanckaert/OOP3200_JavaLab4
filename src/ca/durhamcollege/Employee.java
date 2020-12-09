@@ -21,9 +21,9 @@ public abstract class Employee extends Person{
     }
 
     //METHOD
-    public double calculatePayDay(double pay, double payRate)
+    public double calculatePayDay(double salary)
     {
-         return pay;
+         return salary;
     }
 
     // Function that reads integer values
