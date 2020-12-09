@@ -3,16 +3,41 @@ package ca.durhamcollege;
 import java.time.LocalDate;
 
 public abstract class Employee extends Person{
-    /**
-     * Initializes a person object based on parameters.
-     *
-     * @param fullName  - the intended full name, in order, separated by spaces.
-     * @param birthDate - the intended birth date.
-     * @throws IllegalArgumentException when fullName contains less than one
-     *                                  character or when fullName contains something other than letters, spaces,
-     *                                  hyphens, or apostrophes.
-     */
-    public Employee(String fullName, LocalDate birthDate) {
+
+    //INSTANCE VARIABLES
+    final String employeeId;
+
+    //PARAMETERIZED CONSTRUCTOR
+    public Employee(final String id, String fullName, LocalDate birthDate)
+    {
         super(fullName, birthDate);
+        this.employeeId = ValidateID(id);
+    }
+
+    //ACCESSORS
+    public String getEmployeeId()
+    {
+        return employeeId;
+    }
+
+    //METHOD
+    public double calculatePayDay(double pay, double payRate)
+    {
+         return pay;
+    }
+
+    // Function that reads integer values
+    public String ValidateID(String id)
+    {
+        int MIN_NUM = 8;
+        if(id.length() > MIN_NUM)
+        {
+            throw new IllegalArgumentException("Please enter a number less than or equal to" + MIN_NUM + ", positive number\n");
+        }
+        else
+        {
+            return id;
+        }
+
     }
 }
