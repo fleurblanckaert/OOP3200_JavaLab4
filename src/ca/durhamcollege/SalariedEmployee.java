@@ -11,33 +11,27 @@ public class SalariedEmployee extends Employee
     //ACCESSOR AND MUTATOR
     public double getYearlySalary()
     {
+        //Calculate pay on getter
         return yearlySalary;
     }
 
     public void setYearlySalary(double yearlySalary)
     {
-        int MIN_NUM = 0;
+        double MIN_NUM = 0;
+        double MAX_NUM = Double.MAX_VALUE;
 
-        if(yearlySalary < MIN_NUM)
-        {
-            throw new IllegalArgumentException("Please enter a number greater than or equal to" + MIN_NUM + "\n");
-        }
-        else
-        {
-            this.yearlySalary = yearlySalary;
-        }
+            this.yearlySalary = ValidateNumerals(yearlySalary, MIN_NUM, MAX_NUM);
     }
 
     //PARAMETERIZED CONSTRUCTOR
     public SalariedEmployee(String id, String fullName, LocalDate birthDate, double yearlySalary) {
         super(id, fullName, birthDate);
-        yearlySalary = calculatePayDay(yearlySalary);
         setYearlySalary(yearlySalary);
     }
 
     //METHOD
     @Override
-    public double calculatePayDay(double yearlySalary)
+    public double calculatePayDay()
     {
         int WEEKS = 52;
         double weeklyPay = yearlySalary / WEEKS;

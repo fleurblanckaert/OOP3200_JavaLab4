@@ -16,15 +16,11 @@ public class HourlyWorker extends Employee
     }
 
     public void setHourlyRate(double hourlyRate) {
-        double MINIMUN_WAGE = 17.0;
+        double MINIMUM_WAGE = 17.0;
+        double MAXIMUM_WAGE = Double.MAX_VALUE;
 
-        if(hourlyRate <= MINIMUN_WAGE)
-        {
-            throw new IllegalArgumentException("Salary must be greater than " + MINIMUN_WAGE + "\n");
-        }
-        else {
-            this.hourlyRate = hourlyRate;
-        }
+        this.hourlyRate = ValidateNumerals(hourlyRate, MINIMUM_WAGE, MAXIMUM_WAGE);
+
     }
 
     public double getHoursPerWeek() {
@@ -32,17 +28,10 @@ public class HourlyWorker extends Employee
     }
 
     public void setHoursPerWeek(double hoursPerWeek) {
-        double MINIMUM_HOURS = 0.0;
-        double MAXIMUM_HOURS= 48.0;
+        double MINIMUM_HOURS = 0;
+        double MAXIMUM_HOURS= 48;
 
-        if(hoursPerWeek < MINIMUM_HOURS || hoursPerWeek > MAXIMUM_HOURS)
-        {
-            throw new IllegalArgumentException("Salary must be greater than " + MINIMUM_HOURS + " and less than"+ MAXIMUM_HOURS + " \n");
-        }
-        else
-        {
-            this.hoursPerWeek = hoursPerWeek;
-        }
+        this.hoursPerWeek = ValidateNumerals(hoursPerWeek, MINIMUM_HOURS, MAXIMUM_HOURS);
     }
 
     public double getPay() {
@@ -50,7 +39,7 @@ public class HourlyWorker extends Employee
     }
 
     public void setPay(double hourlyRate, double hoursPerWeek) {
-        this.pay = calculatePayDay(hourlyRate, hoursPerWeek);
+        this.pay = calculatePayDay();
     }
 
 
@@ -62,7 +51,8 @@ public class HourlyWorker extends Employee
         setPay(hourlyRate, hoursPerWeek);
     }
 
-    public double calculatePayDay(double hourlyRate, double hoursPerWeek)
+    @Override
+    public double calculatePayDay()
     {
         double salary = hourlyRate*hoursPerWeek;
         return salary;
