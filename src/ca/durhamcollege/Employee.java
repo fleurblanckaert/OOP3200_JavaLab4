@@ -1,3 +1,9 @@
+/*
+ * @Authors: Gabriel Dietrich (100764733) and Fleur Blanckaert (100747083)
+ * @Date: Dec 13, 2020
+ * @Program: OOP3200 - Java Lab 4
+ * @Description: Abstract superclass that inherits from the parent class
+ */
 package ca.durhamcollege;
 
 import java.time.LocalDate;

@@ -1,3 +1,9 @@
+/*
+ * @Authors: Gabriel Dietrich (100764733) and Fleur Blanckaert (100747083)
+ * @Date: Dec 13, 2020
+ * @Program: OOP3200 - Java Lab 4
+ * @Description: Concrete class that inherits from employee class and is able to instantiate HoulyWorker objects
+ */
 package ca.durhamcollege;
 
 import java.time.LocalDate;
@@ -34,11 +40,14 @@ public class HourlyWorker extends Employee
         this.hoursPerWeek = ValidateNumerals(hoursPerWeek, MINIMUM_HOURS, MAXIMUM_HOURS);
     }
 
-    public double getPay() {
+    //Pay method
+    public double getPay()
+    {
         return pay;
     }
 
-    public void setPay(double hourlyRate, double hoursPerWeek) {
+    public void setPay(double hourlyRate, double hoursPerWeek)
+    {
         this.pay = calculatePayDay();
     }
 
